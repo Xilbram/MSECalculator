@@ -14,8 +14,8 @@ ENTITY BC IS
 		menor : OUT std_LOGIC; --sinal de que iteração chegou ao fim
 		pronto : OUT STD_LOGIC; --end
 		read_mem : OUT STD_LOGIC; --Read
-		enRegA,enRegB,enRegPotenciacao,enRegSubtracao,EnRegSomaGeral,enRegResultado : OUT STD_LOGIC; --Sinais de controles de registradores
-		enMuxSoma,enMuxIncrementador : OUT std_logic --Sinais de controle de multiplexadores
+		enRegA,enRegB,enRegPotenciacao,enRegSubtracao,EnRegSomaGeral,enRegResultado,enRegi : OUT STD_LOGIC; --Sinais de controles de registradores
+		enMuxSoma,enMuxi : OUT std_logic --Sinais de controle de multiplexadores
 	);
 END ENTITY; -- BC
 
@@ -45,9 +45,10 @@ BEGIN
 				enRegPotenciacao <= '0';
 				EnRegSomaGeral <= '0';
 				enRegResultado <= '0'; 
-				enMuxSoma  <= '0';
-				enMuxIncrementador  <= '0';			
+				enMuxSoma  <= '0';		
 				enRegSubtracao <= '0';
+				enMuxi  <= '0';	
+				enRegi <= '0';
 
 				
 				if iniciar = '0' then
@@ -63,10 +64,11 @@ BEGIN
 				enRegA <= '0';
 				enRegB <= '0';
 				enRegPotenciacao <= '0';
-				EnRegSomaGeral <= '0';
+				EnRegSomaGeral <= '1';
 				enRegResultado <= '0'; 
-				enMuxSoma  <= '0';
-				enMuxIncrementador  <= '1';					
+				enMuxSoma  <= '1';
+				enMuxi  <= '1';	
+				enRegi <= '1';					
 				enRegSubtracao <= '0';
 
 				
@@ -82,14 +84,15 @@ BEGIN
 				EnRegSomaGeral <= '0';
 				enRegResultado <= '0'; 
 				enMuxSoma  <= '0';
-				enMuxIncrementador  <= '0';				
+				enMuxi  <= '0';	
+				enRegi <= '0';			
 				enRegSubtracao <= '0';
 
 			
 				if menor = '1' then
 					pe <= s3;
 				else
-					pe <= s5;
+					pe <= s6;
 				end if;
 
 					
@@ -104,7 +107,8 @@ BEGIN
 				EnRegSomaGeral <= '0';
 				enRegResultado <= '0'; 
 				enMuxSoma  <= '0';
-				enMuxIncrementador  <= '0';			
+				enMuxi  <= '0';	
+				enRegi <= '0';			
 
 				PE <= S4;	
 				
@@ -119,7 +123,8 @@ BEGIN
 				EnRegSomaGeral <= '0';
 				enRegResultado <= '0'; 
 				enMuxSoma  <= '0';
-				enMuxIncrementador  <= '0';			
+				enMuxi  <= '0';	
+				enRegi <= '1';			
 				
 				PE <= s5;
 
@@ -134,7 +139,8 @@ BEGIN
 				EnRegSomaGeral <= '1';
 				enRegResultado <= '0'; 
 				enMuxSoma  <= '0';
-				enMuxIncrementador  <= '0';			
+				enMuxi  <= '0';	
+				enRegi <= '0';			
 				enRegSubtracao <= '0';
 
 		
@@ -150,7 +156,8 @@ BEGIN
 				EnRegSomaGeral <= '0';
 				enRegResultado <= '1'; 
 				enMuxSoma  <= '0';
-				enMuxIncrementador  <= '0';			
+				enMuxi  <= '0';	
+				enRegi <= '0';		
 				enRegSubtracao <= '0';
 
 				
